@@ -29,7 +29,7 @@ public class Main extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         getContentPane().setLayout(new BorderLayout());
 
-        // Sidebar
+        
         JPanel sidePanel = new JPanel();
         sidePanel.setBackground(new Color(33, 33, 33));
         sidePanel.setPreferredSize(new Dimension(150, 0));
@@ -51,7 +51,7 @@ public class Main extends JFrame implements ActionListener {
         sidePanel.add(Box.createVerticalGlue());
         getContentPane().add(sidePanel, BorderLayout.WEST);
 
-        // Main Content
+        
         contentPanel = new JPanel();
         cardLayout = new CardLayout();
         contentPanel.setLayout(cardLayout);
@@ -157,11 +157,11 @@ public class Main extends JFrame implements ActionListener {
         searchPanel.add(searchField);
         panel.add(searchPanel, BorderLayout.SOUTH);
 
-        // Table setup
+        
         String[] columns = {"ID", "Pet Name", "Pet Type", "Breed", "Age", "Gender", "Owner Name", "Owner Address"};
         petsTableModel = new DefaultTableModel(columns, 0) {
             public boolean isCellEditable(int row, int column) {
-                return column != 0; // ID not editable
+                return column != 0; 
             }
         };
         petsTable = new JTable(petsTableModel);
@@ -169,7 +169,7 @@ public class Main extends JFrame implements ActionListener {
         rowSorter = new TableRowSorter<>(petsTableModel);
         petsTable.setRowSorter(rowSorter);
 
-        // Listener for table edits (update database)
+      
         petsTableModel.addTableModelListener(e -> {
             if (e.getType() == TableModelEvent.UPDATE) {
                 int row = e.getFirstRow();
@@ -192,7 +192,7 @@ public class Main extends JFrame implements ActionListener {
             }
         });
 
-        // Search filter logic
+
         searchField.getDocument().addDocumentListener(new DocumentListener() {
             public void insertUpdate(DocumentEvent e) {
                 searchTable();
