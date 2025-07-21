@@ -23,7 +23,7 @@ public class Main extends JFrame implements ActionListener {
     private JPanel contentPanel;
 
     public Main() {
-        setTitle("🐾 Pet Registration System");
+        setTitle("Pet Registration System");
         setSize(900, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
